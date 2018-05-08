@@ -1,29 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="48dp"
     android:orientation="vertical"
-    android:background="@android:color/holo_red_light"
-    tools:context=".MainActivity"
-    android:id="@+id/backgroundControl">
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/initbackground"
+        android:scaleType="centerCrop"
+        android:id="@+id/backdrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="48dp"
+        tools:context=".MainActivity"
+        android:id="@+id/backgroundControl"
+        >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Piper Says!"
-        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textSize="34sp"
         android:layout_marginTop="8dp"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="32sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:text="0"
+        android:textStyle="bold"
         android:id="@+id/price" />
 
     <LinearLayout
@@ -34,7 +49,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 Rs"
+            android:text="1 $"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
@@ -42,7 +57,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2 Rs"
+            android:text="2 $"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
@@ -50,7 +65,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5 Rs"
+            android:text="5 $"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
@@ -58,7 +73,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10 Rs"
+            android:text="10 $"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_weight="1"
@@ -71,7 +86,8 @@
         android:textSize="24sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="0 RS PAID"
+        android:text="0 $ PAID"
+        android:textStyle="bold"
         android:id="@+id/price_paid" />
 
     <Button
@@ -92,6 +108,7 @@
         android:layout_marginTop="48dp"
         android:text="NEW PAYMENT"
         android:onClick="restart" />
+    </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

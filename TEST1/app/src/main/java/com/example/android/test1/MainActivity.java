@@ -1,11 +1,16 @@
 package com.example.android.test1;
+import android.content.Context;
 import android.graphics.Color;
+import android.media.Image;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 public class MainActivity extends AppCompatActivity {
@@ -14,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     int piper_amt = generateRandomInt(20);
     TextView mpiperPrice;
     Button resetButton;
-    View linLayout;
+    ImageView linLayout;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mpiperPrice = (TextView) findViewById(R.id.price);
         mpiperPrice.setText(String.valueOf(piper_amt));
-        linLayout = findViewById(R.id.backgroundControl);
+        linLayout = findViewById(R.id.backdrop);
         resetButton = (Button) findViewById(R.id.Reset);
     }
     //Denomination methods
@@ -54,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
          price = 0;
          piper_amt = generateRandomInt(20);
          mpiperPrice.setText(String.valueOf(piper_amt));
-         linLayout.setBackgroundColor(getResources().getColor(R.color.backgroundInit));
+         linLayout.setImageResource(R.drawable.initbackground);
          resetButton.setEnabled(true);
          increment(0);
     }
@@ -67,8 +72,9 @@ public class MainActivity extends AppCompatActivity {
     public void check_payment(int paid, int toPay)                                        //To check if the required amount is paid
     {
             if(paid == toPay){
-                linLayout.setBackgroundColor(getResources().getColor(R.color.backgrounFinal));
-                resetButton.setEnabled(false);}
+                linLayout.setImageResource(R.drawable.paid1);
+                resetButton.setEnabled(false);
+                makeToast("You Paid The Piper!");}
     }
 
 
@@ -90,4 +96,13 @@ public class MainActivity extends AppCompatActivity {
         else
             return number.nextInt(limit);
     }
+
+                                                                    //add ons
+    public void makeToast(CharSequence toastText)
+    {
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context,toastText,Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
 }

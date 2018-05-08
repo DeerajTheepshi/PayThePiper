@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         price+=denomination;
         if(denomination==0)
             price = 0;                                             //Prevents reset even after money is paid
-        paid.setText(String.valueOf(price)+" Rs PAID");
+        paid.setText(String.valueOf(price)+" $ PAID");
     }
     //random Generator using Java.util.Random
     public int generateRandomInt(int limit)

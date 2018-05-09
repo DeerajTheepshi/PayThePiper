@@ -16,7 +16,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     //global variables
     int price = 0;
-    int piper_amt = generateRandomInt(20);
+    int piper_amt = generateRandomInt(30);
     TextView mpiperPrice;
     Button resetButton;
     ImageView linLayout;
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     public void restart(View view)
     {
          price = 0;
-         piper_amt = generateRandomInt(20);
+         piper_amt = generateRandomInt(30);
          mpiperPrice.setText(String.valueOf(piper_amt));
          linLayout.setImageResource(R.drawable.initbackground);
          resetButton.setEnabled(true);

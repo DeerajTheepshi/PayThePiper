@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     TextView mpiperPrice;
     Button resetButton;
     ImageView linLayout;
+    Button b1 ;
+    Button b2 ;
+    Button b3;
+    Button b4;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         mpiperPrice.setText(String.valueOf(piper_amt));
         linLayout = findViewById(R.id.backdrop);
         resetButton = (Button) findViewById(R.id.Reset);
+        b4 = (Button) findViewById(R.id.b4);
+        b3 = (Button) findViewById(R.id.b3);
+        b2 = (Button) findViewById(R.id.b2);
+        b1 = (Button) findViewById(R.id.b1);
     }
     //Denomination methods
     public void increase_1(View view)
@@ -61,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
          mpiperPrice.setText(String.valueOf(piper_amt));
          linLayout.setImageResource(R.drawable.initbackground);
          resetButton.setEnabled(true);
+         b1.setEnabled(true);
+         b2.setEnabled(true);
+         b3.setEnabled(true);
+         b4.setEnabled(true);
          increment(0);
     }
 
@@ -74,7 +86,16 @@ public class MainActivity extends AppCompatActivity {
             if(paid == toPay){
                 linLayout.setImageResource(R.drawable.paid1);
                 resetButton.setEnabled(false);
-                makeToast("You Paid The Piper!");}
+                b1.setEnabled(false);
+                b2.setEnabled(false);
+                b3.setEnabled(false);
+                b4.setEnabled(false);
+                makeToast("You Paid The Piper!");
+            }
+            else if(paid > toPay)
+            {
+                makeToast("Payment exceeds expected amount, Use reset Button");
+    }
     }
 
 
@@ -106,3 +127,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
